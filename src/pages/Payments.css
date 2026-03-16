@@ -1,0 +1,571 @@
+.payments {}
+
+.payments__top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.payments__notification {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.payments__notification:hover {
+    background: var(--color-border);
+}
+
+.payments__user-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.payments__user-badge-info {
+    text-align: right;
+}
+
+.payments__user-badge-name {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+.payments__user-badge-role {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.payments__user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+/* Header */
+.payments__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+}
+
+.payments__header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.payments__action-icon {
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-2);
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast);
+}
+
+.payments__action-icon:hover {
+    background: var(--color-bg);
+}
+
+.payments__header h1 {
+    margin-bottom: 0;
+}
+
+/* Earnings cards */
+.payments__earnings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    margin-bottom: var(--space-8);
+}
+
+.payments__earning-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    transition: box-shadow var(--transition-base);
+}
+
+.payments__earning-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.payments__earning-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.payments__earning-label {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--color-secondary);
+}
+
+.payments__earning-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payments__earning-icon--up {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.payments__earning-icon--pending {
+    background: var(--color-warning-bg);
+    color: var(--color-warning);
+}
+
+.payments__earning-icon--done {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.payments__earning-value {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.payments__earning-sub {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.payments__earning-sub--success {
+    color: var(--color-success);
+}
+
+/* Main content */
+.payments__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-5);
+}
+
+/* Transactions */
+.payments__transactions {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+
+.payments__transactions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-5);
+}
+
+.payments__transactions-header h3 {
+    font-size: var(--font-size-lg);
+}
+
+.payments__view-statement {
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.payments__view-statement:hover {
+    color: var(--color-primary-light);
+}
+
+.payments__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payments__table th {
+    padding: var(--space-3) 0;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.payments__table td {
+    padding: var(--space-4) 0;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.payments__table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Sidebar cards */
+.payments__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.payments__payout-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+
+.payments__payout-card h3 {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-4);
+}
+
+.payments__bank-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    background: var(--color-bg);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+}
+
+.payments__bank-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.payments__bank-details {
+    flex: 1;
+}
+
+.payments__bank-name {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.payments__bank-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.payments__bank-edit {
+    color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.payments__add-payout {
+    width: 100%;
+    padding: 10px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    text-align: center;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.payments__add-payout:hover {
+    background: var(--color-primary-light);
+}
+
+/* Quick stats */
+.payments__quick-stats {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+
+.payments__quick-stats h3 {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-5);
+}
+
+.payments__quick-stat-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.payments__quick-stat-item:last-child {
+    border-bottom: none;
+}
+
+.payments__quick-stat-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.payments__quick-stat-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.payments__quick-stat-icon {
+    color: var(--color-primary);
+}
+
+/* ============================================
+   RESPONSIVE & MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .payments {
+        padding-top: var(--space-2);
+    }
+
+    .payments__header {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        margin-bottom: var(--space-5);
+    }
+
+    .payments__header-left {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+    }
+
+    .payments__back-btn {
+        background: none;
+        border: none;
+        color: var(--color-text);
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .payments__header h1 {
+        font-size: var(--font-size-xl);
+        margin-bottom: 0;
+    }
+
+    .payments__header-actions {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .payments__action-icon {
+        background: none;
+        border: none;
+        color: var(--color-text);
+        padding: 0;
+        cursor: pointer;
+    }
+
+    /* Balance Hero */
+    .payments__balance-hero {
+        background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+        border-radius: var(--radius-xl);
+        padding: var(--space-6);
+        color: #fff;
+        margin-bottom: var(--space-4);
+        text-align: center;
+    }
+
+    .balance-hero__label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        opacity: 0.8;
+        margin-bottom: var(--space-2);
+    }
+
+    .balance-hero__value {
+        font-size: var(--font-size-3xl);
+        font-weight: 700;
+        margin-bottom: var(--space-5);
+    }
+
+    .balance-hero__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+        padding: 12px;
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-sm);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        backdrop-filter: blur(4px);
+    }
+
+    /* Earnings Grid */
+    .payments__earnings {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+        margin-bottom: var(--space-6);
+    }
+
+    .payments__earning-card {
+        padding: var(--space-4);
+        border-radius: var(--radius-xl);
+    }
+
+    .payments__earning-header {
+        margin-bottom: var(--space-3);
+    }
+
+    .payments__earning-label {
+        font-size: var(--font-size-xs);
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    .payments__earning-value {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-1);
+    }
+
+    .payments__earning-sub {
+        font-size: 10px;
+    }
+
+    /* Activity Feed */
+    .payments__content {
+        grid-template-columns: 1fr;
+    }
+
+    .payments__transactions {
+        padding: var(--space-5);
+        border-radius: var(--radius-xl);
+    }
+
+    .payments__transactions h3 {
+        font-size: var(--font-size-md);
+    }
+
+    .payments__activity-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-5);
+        margin-top: var(--space-2);
+    }
+
+    .activity-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: var(--space-4);
+        border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .activity-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    .activity-item__id {
+        font-weight: 700;
+        font-size: var(--font-size-base);
+        color: var(--color-text);
+        margin-bottom: 2px;
+    }
+
+    .activity-item__time {
+        font-size: var(--font-size-xs);
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    .activity-item__right {
+        text-align: right;
+    }
+
+    .activity-item__amount {
+        font-weight: 700;
+        font-size: var(--font-size-base);
+        color: var(--color-text);
+        margin-bottom: 2px;
+    }
+
+    .activity-item__status {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+    }
+
+    .activity-item__status.text-success {
+        color: var(--color-success);
+    }
+
+    .activity-item__status.text-warning {
+        color: var(--color-warning);
+    }
+
+    .activity-item__status.text-danger {
+        color: var(--color-danger);
+    }
+
+    .payments__sidebar {
+        margin-top: var(--space-4);
+    }
+
+    .payments__payout-card {
+        padding: var(--space-5);
+        border-radius: var(--radius-xl);
+    }
+}
