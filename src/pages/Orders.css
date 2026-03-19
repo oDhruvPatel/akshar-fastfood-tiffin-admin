@@ -1,4 +1,4 @@
-.orders {}
+/* Orders Page Styles */
 
 .orders__header {
     display: flex;
@@ -316,10 +316,16 @@
     color: #92400e;
 }
 
-.orders__status-select--preparing {
+.orders__status-select--confirmed {
     background: #dbeafe;
     border-color: #3b82f6;
     color: #1e40af;
+}
+
+.orders__status-select--delivered {
+    background: #e0f2f1;
+    border-color: #00897b;
+    color: #004d40;
 }
 
 .orders__status-select--completed {

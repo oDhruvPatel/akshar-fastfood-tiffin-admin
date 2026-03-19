@@ -4,7 +4,7 @@ import { ordersApi, driversApi } from '../services/api';
 import type { Order, Driver } from '../services/api';
 import './Orders.css';
 
-const tabs = ['All', 'Pending', 'Preparing', 'Completed', 'Cancelled'];
+const tabs = ['All', 'Pending', 'Confirmed', 'Completed', 'Delivered', 'Cancelled'];
 
 export default function Orders() {
     const [activeTab, setActiveTab] = useState('All');
@@ -120,8 +120,9 @@ export default function Orders() {
                                                 onChange={(e) => handleStatusChange(order.id, e.target.value)}
                                             >
                                                 <option value="Pending">Pending</option>
-                                                <option value="Preparing">Preparing</option>
+                                                <option value="Confirmed">Confirmed</option>
                                                 <option value="Completed">Completed</option>
+                                                <option value="Delivered">Delivered</option>
                                                 <option value="Cancelled">Cancelled</option>
                                             </select>
                                         </div>
@@ -201,8 +202,9 @@ export default function Orders() {
                                                 onChange={(e) => handleStatusChange(order.id, e.target.value)}
                                             >
                                                 <option value="Pending">Pending</option>
-                                                <option value="Preparing">Preparing</option>
+                                                <option value="Confirmed">Confirmed</option>
                                                 <option value="Completed">Completed</option>
+                                                <option value="Delivered">Delivered</option>
                                                 <option value="Cancelled">Cancelled</option>
                                             </select>
                                             <ChevronDown size={16} className="order-card__select-icon" />

@@ -13,6 +13,8 @@ import { menuApi } from '../services/api';
 import type { MenuItem } from '../services/api';
 import './Menu.css';
 
+const DEFAULT_CATEGORIES = ['Tiffin', 'Extras', 'Sides'];
+
 export default function Menu() {
     const [categories, setCategories] = useState<string[]>([]);
     const [activeTab, setActiveTab] = useState('');
@@ -32,10 +34,11 @@ export default function Menu() {
     // Fetch categories on mount
     useEffect(() => {
         menuApi.getCategories().then((cats) => {
-            setCategories(cats);
+            const allCats = [...new Set([...DEFAULT_CATEGORIES, ...cats])];
+            setCategories(allCats);
             if (cats.length > 0) {
-                setActiveTab(cats[0]);
-                setFormCategory(cats[0]);
+                if (!activeTab) setActiveTab(cats[0]);
+                if (!formCategory) setFormCategory(cats[0]);
             }
         }).catch(console.error);
         menuApi.getStats().then(setStats).catch(console.error);
@@ -43,8 +46,8 @@ export default function Menu() {
 
     // Fetch items when tab or search changes
     useEffect(() => {
-        if (!activeTab) return;
-        const params: { category?: string; search?: string } = { category: activeTab };
+        const params: { category?: string; search?: string } = {};
+        if (activeTab) params.category = activeTab;
         if (searchQuery) params.search = searchQuery;
         menuApi.list(params).then(setItems).catch(console.error);
     }, [activeTab, searchQuery]);
@@ -168,6 +171,12 @@ export default function Menu() {
 
             {/* Category Tabs */}
             <div className="menu__tabs">
+                <button
+                    className={`menu__tab ${activeTab === '' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('')}
+                >
+                    All Items
+                </button>
                 {categories.map((cat) => (
                     <button
                         key={cat}
@@ -291,6 +300,7 @@ export default function Menu() {
                             <div className="form-group">
                                 <label>Category</label>
                                 <select value={formCategory} onChange={(e) => setFormCategory(e.target.value)}>
+                                    <option value="" disabled>Select a category</option>
                                     {categories.map(cat => (
                                         <option key={cat} value={cat}>{cat}</option>
                                     ))}

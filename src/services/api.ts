@@ -19,7 +19,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 
 // ---------- Dashboard ----------
 export const dashboardApi = {
-    getStats: () => request<{ totalOrders: number; pending: number; preparing: number; revenue: number }>('/dashboard/stats'),
+    getStats: () => request<{ totalOrders: number; pending: number; confirmed: number; revenue: number }>('/dashboard/stats'),
     getRevenue: () => request<{ day: string; revenue: number }[]>('/dashboard/revenue'),
     getRecentOrders: () => request<any[]>('/dashboard/recent-orders'),
 };

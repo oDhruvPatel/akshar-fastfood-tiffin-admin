@@ -22,7 +22,7 @@ import type { Order } from '../services/api';
 import './Dashboard.css';
 
 export default function Dashboard() {
-    const [stats, setStats] = useState({ totalOrders: 0, pending: 0, preparing: 0, revenue: 0 });
+    const [stats, setStats] = useState({ totalOrders: 0, pending: 0, confirmed: 0, revenue: 0 });
     const [chartData, setChartData] = useState<{ day: string; revenue: number }[]>([]);
     const [recentOrders, setRecentOrders] = useState<Order[]>([]);
 
@@ -85,12 +85,12 @@ export default function Dashboard() {
 
                 <div className="stat-card">
                     <div className="stat-card__header">
-                        <span className="stat-card__label">Preparing</span>
+                        <span className="stat-card__label">Confirmed</span>
                         <div className="stat-card__icon stat-card__icon--info">
                             <ChefHat size={16} />
                         </div>
                     </div>
-                    <div className="stat-card__value">{stats.preparing}</div>
+                    <div className="stat-card__value">{stats.confirmed}</div>
                 </div>
 
                 <div className="stat-card">
@@ -166,7 +166,7 @@ export default function Dashboard() {
                                     </div>
                                     <div className="dashboard__order-right">
                                         <span className="dashboard__order-total">${order.total.toFixed(2)}</span>
-                                        <span className={`badge badge--sm ${order.status === 'Completed' ? 'badge--success' : order.status === 'Pending' ? 'badge--warning' : order.status === 'Cancelled' ? 'badge--danger' : 'badge--info'}`}>
+                                        <span className={`badge badge--sm ${order.status === 'Completed' || order.status === 'Delivered' ? 'badge--success' : order.status === 'Pending' ? 'badge--warning' : order.status === 'Cancelled' ? 'badge--danger' : 'badge--info'}`}>
                                             {order.status}
                                         </span>
                                     </div>

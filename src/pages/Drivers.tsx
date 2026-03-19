@@ -366,8 +366,8 @@ export default function Drivers() {
                                             <div className="driver-order-item__top">
                                                 <strong>{order.orderId}</strong>
                                                 <span className={`badge badge--sm ${order.status === 'Pending' ? 'badge--warning' :
-                                                    order.status === 'Preparing' ? 'badge--info' :
-                                                        order.status === 'Completed' ? 'badge--success' : 'badge--danger'
+                                                    order.status === 'Confirmed' ? 'badge--info' :
+                                                        (order.status === 'Completed' || order.status === 'Delivered') ? 'badge--success' : 'badge--danger'
                                                     }`}>{order.status}</span>
                                             </div>
                                             <div className="driver-order-item__customer">{order.customerName}</div>
